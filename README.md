@@ -19,11 +19,7 @@ python manage.py runserver
 5. Run frontend module bundler
 ```
 cd frontend
-```
-```
 npm install
-```
-```
 npm start
 ```
 
