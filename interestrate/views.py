@@ -37,7 +37,6 @@ def interestrates_list(request):
 
     elif request.method == 'POST':
         serializer = InterestrateSerializer(data=request.data)
-        logging.warning('ggggggggggggggg', serializer)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)

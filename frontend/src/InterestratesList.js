@@ -23,7 +23,6 @@ class  InterestratesList  extends  Component {
     componentDidMount() {
         var  self  =  this;
         interestratesService.getInterestrates().then(function (result) {
-            console.log(result)
             self.setState({ interestrates:  result.data, nextPageURL:  result.nextlink})
         });
     }
@@ -54,12 +53,9 @@ class  InterestratesList  extends  Component {
         let theMonth = theDate.getMonth()+1;
         if(theMonth<10)theMonth = "0"+ theMonth;
         let theDay = lastDayOfMonth.getDate();
-        console.log(event.target.value)
-        console.log(theDay, theMonth, theYear)
         
         let date = theYear + "-" + theMonth + "-" + theDay
         axios.get(API_URL + date).then(response => {
-            console.log(response.data);
             if(response.data.data.length>0){
                 this.setState({rateVaule: "Interest rate on "+this.state.rateDate +" is "+ response.data.data[0].avg_interest_rate_amt})
 
